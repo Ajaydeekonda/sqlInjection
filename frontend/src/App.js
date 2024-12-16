@@ -1,50 +1,25 @@
-import { useState } from 'react';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Form from "./components/Form"; 
+import ErrorPage from "./components/ErrorPage";
+import ViewSource from "./components/ViewSource.";
 
 function App() {
-  const [usersDetail, setUserDetail] = useState({});
-  const [userId, setUserId] = useState(""); 
   
-  const handleForm = async (e) => {
-    e.preventDefault(); 
-    try {
-      const response = await fetch('http://localhost:9000/api/users/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId })  // Correctly send userId as a JSON object
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      setUserDetail(data);  // Update the state with fetched data
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
 
   return (
-    <div className="App">
-      <form onSubmit={handleForm}> {/* Attach handleForm to form submission */}
-        <label htmlFor='input'>User ID:</label>
-        <input 
-          type='text' 
-          placeholder='Enter the user ID' 
-          id='input' 
-          value={userId}  // Bind the input value to userId state
-          onChange={(e) => setUserId(e.target.value)}  // Correctly capturing the input value
-        />
-        <button type='submit'>Submit</button>
-      </form>
-      <div>
-        <p>{JSON.stringify(usersDetail)}</p>
-      </div>
-    </div>
+      <Router>
+      <Routes>
+        <Route path="/" element={<Form />} />
+        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/viewsource" element={<ViewSource/>} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+
+
+

@@ -1,0 +1,193 @@
+/* Add this to your CSS */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures consistent box model sizing */
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d2e1f0;
+    
+}
+
+.main > img{
+  width: 30vh;
+  height: 12vh;
+  position: relative;
+  right: 104px;
+  top: 15px;
+  
+}
+
+.main >button{
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
+  z-index: 1000;
+  background-color: #3182ce; 
+  color: #fff;
+  padding: 4px 6px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 14px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.main > button:hover{
+  background-color: #2b6cb0;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 10px;
+  max-height: 60%; /* Limit the space */
+  gap: 20px;
+}
+
+
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reducing the space between child elements */
+  justify-content: flex-start; /* Avoids excessive space */
+}
+
+
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    
+    
+    
+  }
+  
+  /* Each radio button */
+  .button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;   
+    border-radius: 5px; /* Keep the rounded corners */
+    transition: background-color 0.3s
+  }
+
+  .button:hover{
+    background-color: #edf2f7;
+
+  }
+
+  
+  
+  .button input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer; 
+  }
+
+
+  
+  .button label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2d3748; /* Dark gray text */
+    cursor: pointer; /* Pointer on label */
+    user-select: none;
+  }
+
+  .button:has(input[type="radio"]:checked) {
+    background-color: #edf2f7; /* Same as hover background */
+}
+
+
+  
+ /* User ID input section */
+.userId {
+    width: 100%;
+    display: flex; /* Use Flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */ /* Space between elements */
+    
+  }
+  
+  .userId label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a5568;
+    margin-right: 5px; /* Slightly darker gray */
+  }
+  
+  .userId input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 200px; /* Fixed width for better UX */
+    margin-right: 5px;
+  }
+  
+  .userId input:focus {
+    border-color: #3182ce; /* Blue border on focus */
+  }
+  
+  .userId button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3182ce; /* Blue button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .userId button:hover {
+    background-color: #2b6cb0; /* Darker blue on hover */
+  }
+  
+  
+  /* Data display section */
+  .data {
+    width: 100%;
+    max-height: 70%; /* Maintain your desired height limit */
+    overflow-y: auto; /* Add vertical scrolling when content overflows */
+    overflow-x: hidden; /* Prevent horizontal scroll if wrapping is enabled */
+    padding: 10px;
+    background-color: #edf2f7;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    color: #4a5568;
+    font-family: monospace;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .data pre {
+    margin: 0;
+    white-space: pre-wrap; /* Ensure long lines wrap inside the container */
+    word-wrap: break-word; /* Break long words that don't fit */
+  }
+  
+  
+  .data p {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    color: #718096; /* Subtle gray for no data text */
+  }
+  

@@ -1,15 +1,19 @@
 // index.js
 const express = require('express');
 const cors = require('cors');
-const router = require('./routes/users.route'); // Assuming you have a router defined
-const { getConnection } = require('./database'); // Import connect as a function
+const lowRoute = require('./routes/low.route'); 
+const mediumRoute = require('./routes/medium.route'); 
+const highRoute = require('./routes/high.route'); 
+const { getConnection } = require('./database'); 
 
 const app = express();
 app.use(express.json()); 
 app.use(cors());
 
 // Define your routes using the router
-app.use('/api/users', router); // Make sure to set up the route correctly
+app.use('/api/low', lowRoute); 
+app.use('/api/medium', mediumRoute); 
+app.use('/api/high', highRoute); 
 
 const startServer = async () => {
   try {
@@ -22,4 +26,4 @@ const startServer = async () => {
   }
 };
 
-startServer();  // Call the function to start the server
+startServer();  
