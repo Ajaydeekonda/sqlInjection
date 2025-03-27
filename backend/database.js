@@ -8,6 +8,7 @@ const pool = mysql.createPool({
   user : 'root',
   password: 'Dikonda9@',
   database: 'users',
+  multipleStatements: true
 });
 
 const getConnection = async () => {
